@@ -13,16 +13,19 @@ const io = new WebSocketServer(myServer);
 
 app.use(express.static(__dirname + '/public'));
 
-io.on('connection',(socket)=>{
-    console.log('nueva conexion:',socket.id);
-    
-    socket.emit('ping')
+io.on('connection', (socket) => {
+    console.log('nueva conexion:', socket.id);
+    // socket.emit('ping');
+    // socket.on('pong',()=>{
+    //     console.log('Escuchando al cliente');
+    // })
 
-    socket.on('pong',()=>{
-        console.log('Escuchando al cliente');
+    socket.on('client:newuser', (data) => {
+        console.log('hola');
+        console.log(data);
     })
 })
 
 
 myServer.listen(3000);
-console.log('Server on port',3000);
+console.log('Server on port', 3000);
