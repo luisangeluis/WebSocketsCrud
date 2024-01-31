@@ -8,6 +8,7 @@
   <title>Crud websockets</title>
   <!-- Bootstrap -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+  <!-- Main CSS -->
   <link rel="stylesheet" href="./main.css">
 </head>
 
@@ -15,11 +16,12 @@
   <main>
     <div class="container-md main-container">
       <h1 class="text-center my-3 my-md-4 card-title">Crud users</h1>
-      <div class="row text-center">
+      <section class="row text-center">
         <div class="col-md-4">
           <h2 class="">Form</h2>
           <form class="card p-md-2 text-start" id="user-form">
             <div class="car-body">
+              <h2>Add a note</h2>
               <div class="mb-3">
                 <label for="first-name" class="form-label">First Name</label>
                 <input type="text" class="form-control" id="first-name" name="first-name" placeholder="Type the first name" aria-describedby="first-name" autofocus="true">
@@ -36,7 +38,7 @@
           <h2 class="">Users List</h2>
           <section class="row users"></section>
         </div>
-      </div>
+      </section>
     </div>
   </main>
 
