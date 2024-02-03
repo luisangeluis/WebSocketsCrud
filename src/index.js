@@ -10,11 +10,9 @@ app.use(express.static(__dirname+"/public"))
 
 io.on("connection",(socket)=>{
   // console.log("nueva conexion",socket.id);
-  // //Emitiendo mi evento ping
-  // socket.emit("ping");
-  // socket.on("pong",()=>{
-  //   console.log("ping");
-  // })
+  socket.on("client:newnote",data=>{
+    console.log(data);
+  });
 
 
 })

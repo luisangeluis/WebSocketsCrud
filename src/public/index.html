@@ -19,16 +19,17 @@
       <section class="row text-center">
         <div class="col-md-4">
           <h2 class="">Form</h2>
-          <form class="card p-md-2 text-start" id="user-form">
+          <form class="card p-md-2 text-start" id="note-form">
             <div class="car-body">
-              <h2>Add a note</h2>
+              <h2 class="mb-3">Add a note</h2>
               <div class="mb-3">
-                <label for="first-name" class="form-label">First Name</label>
-                <input type="text" class="form-control" id="first-name" name="first-name" placeholder="Type the first name" aria-describedby="first-name" autofocus="true">
+                <input type="text" class="form-control" id="title" name="title" 
+                  placeholder="Write a title" aria-describedby="title" autofocus="true">
               </div>
-              <div class="mb-3">
-                <label for="last-name" class="form-label">Last Name</label>
-                <input type="text" class="form-control" id="last-name" name="last-name" placeholder="Type the last name" aria-describedby="last-name" autofocus="true">
+              <div class="form-floating">
+                <textarea class="form-control" id="description" name="description" aria-describedby="description">
+                </textarea>
+                <label for="description">Write a description</label>
               </div>
             </div>
             <button class="btn btn-secondary" type="submit">Submit</button>
