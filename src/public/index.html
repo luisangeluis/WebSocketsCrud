@@ -15,7 +15,7 @@
 <body>
   <main>
     <div class="container-md main-container">
-      <h1 class="text-center my-3 my-md-4 card-title">Crud users</h1>
+      <h1 class="text-center py-3 py-md-4 card-title">Crud users</h1>
       <section class="row text-center">
         <div class="col-md-4">
           <h2 class="">Form</h2>
@@ -27,8 +27,7 @@
                   placeholder="Write a title" aria-describedby="title" autofocus="true">
               </div>
               <div class="form-floating">
-                <textarea class="form-control" id="description" name="description" aria-describedby="description">
-                </textarea>
+                <textarea class="form-control" id="description" name="description" aria-describedby="description"></textarea>
                 <label for="description">Write a description</label>
               </div>
             </div>
@@ -37,15 +36,15 @@
         </div>
         <div class="col-md-8">
           <h2 class="">Users List</h2>
-          <section class="row users"></section>
+          <section class="notes" id="notes"></section>
         </div>
       </section>
     </div>
   </main>
 
-  <script src="./uiUsers.js"></script>
   <script src="./socket.io/socket.io.min.js"></script>
-  <script src="./socketsUsers.js"></script>
+  <script src="./ui.js"></script>
+  <script src="./sockets.js"></script>
   <script src="./main.js"></script>
 </body>
 
