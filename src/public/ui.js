@@ -1,19 +1,44 @@
 const notesList = document.querySelector("#notes");
 
-const appendNote =note=>{
-  console.log(note);
-  notesList.innerHTML+=`
+const noteUI =note=>{
+  const div = document.createElement("div");
+
+  div.innerHTML=`
     <article class="card card-body rounded-0 my-3">
-      <h2 class="card-title">${note.title}</h2>
+      <div class="d-flex justify-content-between">
+        <h2 class="card-title">${note.title}</h2>
+          <div>
+            <button class="btn btn-danger delete" data-id="${note.id}">Delete</button>
+            <button class="btn btn-secondary update" data-id="${note.id}">Update</button>
+          </div>
+      </div>
       <p>${note.description}</p>
     </article>
   `;
+
+  const btnDelete = div.querySelector(".delete");
+  const btnUpdate = div.querySelector(".update");
+  // console.log(btnDelete);
+  console.log(btnUpdate);
+
+  btnDelete.addEventListener("click",()=>{
+    deleteNote(btnDelete.dataset.id)
+  })
+
+  btnUpdate.addEventListener("click",()=>{
+    updateNote(btnUpdate.dataset.id,)
+  })
+  
+  return div;
 }
 
-// let usersContainer = document.querySelectorAll('.users');
+const renderNotes=(notes)=>{
+  notesList.innerHTML ="";
+  notes.forEach(note => {
+    notesList.append(noteUI(note))
+  })
+}
 
-// const appendUser = user => {
-//   usersContainer.forEach(container => {
-//     container.innerHTML += `<h2>${user.firstName}</h2>`
-//   })
-// }
+const appendNote=(note)=>{
+  notesList.append(noteUI(note))
+}
