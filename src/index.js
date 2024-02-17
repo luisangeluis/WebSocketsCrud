@@ -25,14 +25,30 @@ io.on("connection",(socket)=>{
 
   socket.on("client:deletenote",noteId=>{
     notes = notes.filter(note=>note.id !== noteId)
-    console.log(notes);
+    // console.log(notes);
     socket.emit("server:loadnotes",notes)
   })
 
-  socket.on("client:updatenote",noteId=>{
-    
+  socket.on("client:getnote" ,noteId=>{
+    // console.log(noteId);
+    const note = notes.find(note=>note.id === noteId);
+    // console.log(note);
+    socket.emit("server:notefound",note)
+    // socket.emit("server:")
+  })
+
+  socket.on("client:updatenote",updatedNote=>{
+    console.log(updatedNote);    
+    const index = notes.findIndex(note=>note.id === updatedNote.id);
+    console.log([index]);
+    if(index>-1) {
+      notes[index].title=updatedNote.title;
+      notes[index].description=updatedNote.description;
+    }
+
     socket.emit("server:loadnotes",notes)
   })
+
 
 })
 

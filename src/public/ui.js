@@ -1,4 +1,5 @@
 const notesList = document.querySelector("#notes");
+let savedId = "";
 
 const noteUI =note=>{
   const div = document.createElement("div");
@@ -26,7 +27,7 @@ const noteUI =note=>{
   })
 
   btnUpdate.addEventListener("click",()=>{
-    updateNote(btnUpdate.dataset.id,)
+    getNote(btnUpdate.dataset.id,)
   })
   
   return div;
