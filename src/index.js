@@ -20,13 +20,15 @@ io.on("connection",(socket)=>{
     
     notes.push(note);
     
-    socket.emit("server:notecreated",note)
+    // socket.emit("server:notecreated",note)
+    io.emit("server:notecreated",note)
   });
 
   socket.on("client:deletenote",noteId=>{
     notes = notes.filter(note=>note.id !== noteId)
     // console.log(notes);
-    socket.emit("server:loadnotes",notes)
+    // socket.emit("server:loadnotes",notes)
+    io.emit("server:loadnotes",notes)
   })
 
   socket.on("client:getnote" ,noteId=>{
@@ -46,7 +48,7 @@ io.on("connection",(socket)=>{
       notes[index].description=updatedNote.description;
     }
 
-    socket.emit("server:loadnotes",notes)
+    io.emit("server:loadnotes",notes)
   })
 
 
